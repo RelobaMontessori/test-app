@@ -16,11 +16,11 @@ return new class extends Migration
             $table->timestamps();
             $table->string('nombre');
             $table->integer('tiempo')->default(0);
-            $table->enum('experiencia',['facil','media','compleja'])->default('dificil');
+            $table->enum('dificultad',['facil','media','compleja']);
             $table->text('texto')->default("Lorem Ipsum");
-            $table->enum('tipo',['tradicional','slow food','freidora sin aceite'])/*->default('tradicional')*/;
+            $table->enum('tipo',['tradicional','slow food','freidora sin aceite']);
             $table->string('imagen')->nullable();
-            $table->foreignId('id_usuario')->constrained('Usuario');
+            $table->foreignId('id_usuario')->constrained('usuarios');
         });
     }
 

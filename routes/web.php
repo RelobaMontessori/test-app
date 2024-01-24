@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Usuario;
+use App\Models\Receta;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
@@ -68,5 +69,11 @@ Route::get('/creaUsuario/{nombre_usuario}', function($nombre){
 Route::get('/buscaUsuario/{user:nombre_usuario}', function(Usuario $user){
     return view('prueba',[
         'variableDeRuta' => $user
+    ]);
+});
+
+Route::get('/buscaReceta/{receta}',function(Receta $receta){
+    return view('prueba',[
+        'variableDeRuta' => $receta
     ]);
 });

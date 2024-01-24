@@ -12,7 +12,7 @@ class Receta extends Model
         return $this->hasMany(Ingrediente::class);
     }
     public function usuario(){
-        return $this->belongsTo(Usuario::class);
+        return $this->belongsTo(Usuario::class,'id_usuario');
     }
     public function comentarios(){
         return $this->hasMany(Comentario::class);

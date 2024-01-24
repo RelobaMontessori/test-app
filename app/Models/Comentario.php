@@ -9,13 +9,13 @@ class Comentario extends Model
 {
     use HasFactory;
     public function usuario(){
-        return $this->belongsTo(Usuario::class);
+        return $this->belongsTo(Usuario::class,'id_usuario');
     }
     public function receta(){
-        return $this->belongsTo(Receta::class);
+        return $this->belongsTo(Receta::class,'id_receta');
     }
     public function comentario(){
-        return $this->belongsTo(Comentario::class);
+        return $this->belongsTo(Comentario::class,'id_comentario');
     }
     public function respuestas(){
         return $this->hasMany(Comentario::class);

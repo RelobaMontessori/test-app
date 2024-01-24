@@ -16,9 +16,9 @@ return new class extends Migration
             $table->timestamps();
             $table->text('texto');
             $table->enum('valoracion',[1,2,3,4,5]);
-            $table->foreignId('id_receta')->constrained('receta');
-            $table->foreignId('id_usuario')->constrained('usuario');
-            $table->foreignId('id_comentario')->nullable()->constrained('comentario');
+            $table->foreignId('id_receta')->constrained('recetas');
+            $table->foreignId('id_usuario')->constrained('usuarios');
+            $table->foreignId('id_comentario')->nullable()->constrained('comentarios');
         });
     }
 
