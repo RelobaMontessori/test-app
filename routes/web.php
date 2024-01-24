@@ -29,14 +29,15 @@ Route::get('/', function () {
 
 Route::get('/pruebaDB', function () {
 
-	$results = DB::select('SELECT * FROM usuarios');
-	$mensaje="";
-	foreach ($results as $row) {
-		$mensaje=$mensaje.$row->nombre_usuario."<br>";
-	}
-    return view('prueba',[
-		'variableDeRuta' => $mensaje
-	]);
+	$user=new Usuario();
+    $user->nombre_usuario="guillermo_reloba";
+    $user->nombre="Guillermo";
+    $user->apellidos="Reloba";
+    $user->correo="a@a.com";
+    $user->save();
+    $comentario=new Comentario();
+    $comentario->texto="Un texto";
+
 });
 
 Route::get('/pruebaWildcards/{x}', function ($mensaje) {
