@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegistroController;
 use App\Models\Usuario;
 use App\Models\Receta;
 use Illuminate\Support\Facades\Route;
@@ -77,3 +78,7 @@ Route::get('/buscaReceta/{receta}',function(Receta $receta){
         'variableDeRuta' => $receta
     ]);
 });
+
+Route::get('/registro',[RegistroController::class,'miMetodo']);
+
+Route::post('/registro',[RegistroController::class,'crearUsuario']);

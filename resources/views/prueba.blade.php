@@ -1,2 +1,2 @@
 
-<p>{{$variableDeRuta}}</p>
+{{ $variableDeRuta }}
