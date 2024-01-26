@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Usuario extends Model
 {
     use HasFactory;
-	protected $guarded=['id','esAdmin','contrasena'];
+	protected $guarded=['id','esAdmin'];
 	//protected $fillable=['nombre_usuario','nombre','apellidos','correo','experiencia'];
     public function comentarios(){
         return $this->hasMany(Comentario::class);
@@ -16,7 +16,10 @@ class Usuario extends Model
     public function recetas(){
         return $this->hasMany(Receta::class);
     }
+
+    public function setContrasenaAttribute($pwd){
+        $this->attributes['contrasena']=bcrypt($pwd);
+    }
+
 }
-//Usuario::create(['nombre'=>"Francisco",'apellidos'=>"Francisquez",'esAdmin'=>TRUE]);
-//$variable=new Usuario;
-//$variable->nombre="Francisco";
+
