@@ -23,14 +23,7 @@ Route::get('/test', function () {
 });
 
 Route::get('/', function () {
-    $sesionIniciada=false;
-    if($sesionIniciada){
         return view('index');
-    }
-    else{
-        return view('welcome');
-    }
-
 });
 
 Route::get('/sesion',function(){

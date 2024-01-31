@@ -9,6 +9,24 @@
 <body>
     <header>
         <h1>Bienvenido a Nuestra Página</h1>
+        <br>
+        <?php
+            if(session()->has('nombre_usuario')){
+        ?>
+                <a href="/perfil"> Mi perfil </a>
+                <br>
+        <?php
+        }
+            else{
+        ?>
+        <a href="/registro"> Registrarse </a>
+        <br>
+        <a href="/login"> Login </a>
+        <?php
+            }
+            ?>
+        <br>
+
     </header>
     <section class="main-content">
         <p>Gracias por visitar nuestra página de bienvenida. Aquí encontrarás información interesante y emocionante.</p>
