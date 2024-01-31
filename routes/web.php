@@ -23,7 +23,18 @@ Route::get('/test', function () {
 });
 
 Route::get('/', function () {
-    return view('index');
+    $sesionIniciada=false;
+    if($sesionIniciada){
+        return view('index');
+    }
+    else{
+        return view('welcome');
+    }
+
+});
+
+Route::get('/sesion',function(){
+   return session('nombre_usuario');
 });
 
 Route::get('/buscaReceta/{receta}',function(Receta $receta){

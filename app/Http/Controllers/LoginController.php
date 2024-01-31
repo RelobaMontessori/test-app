@@ -24,6 +24,7 @@ class LoginController extends Controller
         echo($user->correo);
         echo("<br>");
         if($loginOk){
+            session()->put($user->getAttributes());
             return "Pase usted";
         }
         else{

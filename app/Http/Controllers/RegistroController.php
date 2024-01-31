@@ -26,7 +26,8 @@ class RegistroController extends Controller
             'experiencia'=>['required'],
             'contrasena'=>['required','min:6']
         ]);
-        Usuario::create($parametros);
-        return "Todo OK";
+        $usuario=Usuario::create($parametros);
+        session()->put($usuario->getAttributes());
+        return session()->all();
     }
 }
