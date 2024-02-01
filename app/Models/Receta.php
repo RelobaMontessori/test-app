@@ -15,6 +15,6 @@ class Receta extends Model
         return $this->belongsTo(Usuario::class,'id_usuario');
     }
     public function comentarios(){
-        return $this->hasMany(Comentario::class);
+        return $this->hasMany(Comentario::class,'id_receta');
     }
 }

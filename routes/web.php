@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RecetaController;
 use App\Http\Controllers\RegistroController;
 use App\Models\Usuario;
 use App\Models\Receta;
@@ -30,11 +31,8 @@ Route::get('/sesion',function(){
    return session('nombre_usuario');
 });
 
-Route::get('/buscaReceta/{receta}',function(Receta $receta){
-    return view('prueba',[
-        'variableDeRuta' => $receta
-    ]);
-});
+Route::get('/receta/{receta}',[RecetaController::class,'muestraReceta']);
+Route::post('/receta/{receta}',[RecetaController::class,'addComentario']);
 
 Route::get('/registro',[RegistroController::class,'miMetodo']);
 
