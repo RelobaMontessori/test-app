@@ -16,7 +16,6 @@ class Usuario extends Model
     public function recetas(){
         return $this->hasMany(Receta::class);
     }
-
     public function setContrasenaAttribute($pwd){
         $this->attributes['contrasena']=bcrypt($pwd);
     }
