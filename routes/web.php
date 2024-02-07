@@ -34,6 +34,12 @@ Route::get('/sesion',function(){
 Route::get('/receta/{receta}',[RecetaController::class,'muestraReceta']);
 Route::post('/receta/{receta}',[RecetaController::class,'addComentario']);
 
+Route::get('/recetas',function () {
+    return view('recetas',[
+        "recetas"=>Receta::all()
+    ]);
+});
+
 Route::get('/registro',[RegistroController::class,'miMetodo']);
 
 Route::post('/registro',[RegistroController::class,'crearUsuario']);

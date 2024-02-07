@@ -27,4 +27,15 @@ class RecetaController extends Controller
         ]);
         return redirect('/receta/'.$id);
     }
+    public function addReceta(){
+        $formulario= request()->validate([
+            'nombre' => ['required', 'max:600'],
+            'texto' => ['required', 'max:5000'],
+            'tiempo' => ['required','number'],
+            'imagen' => ['image','mimes:png,jpg,jpeg'],
+            'dificultad' => [],
+            'tipo' => []
+        ]);
+
+    }
 }

@@ -24,7 +24,7 @@ class UsuarioFactory extends Factory
                 'apellidos' => fake()->lastName(),
                 'correo' => fake()->userName.'@mail.com',
                 'experiencia' => 'Principiante',
-                'contrasena'=>bcrypt('123456'),
+                'contrasena'=>'123456',
                 'esAdmin'=> 0
         ];
     }

@@ -1,4 +1,4 @@
-<form action="/registro" method="post">
+<form action="/registro" method="post" enctype="multipart/form-data">
     @csrf
     <br><br>
     Nombre de usuario: <input type="text" name="nombre_usuario" id="">
@@ -22,6 +22,9 @@
     </select>
     <br><br>
     Contraseña: <input type="password" name="contrasena" id="">
+    <br><br>
+    <br><br>
+    Foto: <input type="file" name="image" id="">
     <br><br>
     <button type="submit">Enviar</button>
 </form>

@@ -18,11 +18,7 @@ class DatabaseSeeder extends Seeder
         $users=Usuario::factory()->count(20)->has(Receta::factory()->count(2))->create();
         foreach($users as $user){
             Comentario::factory()->count(5)->for($user,'autor')->for($user->recetas[0])->create();
+            Comentario::factory()->count(5)->for($user,'autor')->for($user->recetas[1])->create();
         }
-        //Comentario::factory()->count(50)->create();
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }
