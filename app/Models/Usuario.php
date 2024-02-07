@@ -11,10 +11,10 @@ class Usuario extends Model
 	protected $guarded=['id','esAdmin'];
 	//protected $fillable=['nombre_usuario','nombre','apellidos','correo','experiencia'];
     public function comentarios(){
-        return $this->hasMany(Comentario::class);
+        return $this->hasMany(Comentario::class,'id_usuario');
     }
     public function recetas(){
-        return $this->hasMany(Receta::class);
+        return $this->hasMany(Receta::class,'id_usuario');
     }
     public function setContrasenaAttribute($pwd){
         $this->attributes['contrasena']=bcrypt($pwd);

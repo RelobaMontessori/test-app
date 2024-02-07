@@ -17,7 +17,8 @@ class ComentarioFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'texto'=>fake()->paragraph(),
+            'valoracion'=>fake()->numberBetween(1,5)
         ];
     }
 }

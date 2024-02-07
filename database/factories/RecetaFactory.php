@@ -17,7 +17,7 @@ class RecetaFactory extends Factory
     public function definition(): array
     {
         return [
-            'nombre'=>fake()->opera(),
+            'nombre'=>fake()->word,
             'texto'=>fake()->paragraph(),
             'tipo'=>"Tradicional",
             'tiempo'=>fake()->numberBetween(0,300)
