@@ -41,9 +41,9 @@ Route::get('/recetas',function () {
 });
 
 Route::get('/registro',[RegistroController::class,'miMetodo']);
-
 Route::post('/registro',[RegistroController::class,'crearUsuario']);
 
 Route::get('/login',[LoginController::class,'muestraForm']);
+Route::post('/login',[LoginController::class,'checkLoginLaravel']);
 
-Route::post('/login',[LoginController::class,'checkLogin']);
+Route::post('/logout',[LoginController::class,'logoutLaravel']);

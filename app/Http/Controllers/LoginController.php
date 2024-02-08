@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -30,5 +31,22 @@ class LoginController extends Controller
         else{
             return "Vade retro, anónimo";
         }
+    }
+    public function checkLoginLaravel(){
+        $credenciales = request()->validate([
+            'nombre_usuario' => ['required'],
+            'contrasena' => ['required','min:6']
+        ]);
+        if (Auth::attempt(
+            ["nombre_usuario"=>$credenciales['nombre_usuario'],
+                "password"=>$credenciales['contrasena']]
+        )) {
+            request()->session()->regenerate();
+
+            return redirect('/recetas');
+        }
+        return back()->withErrors([
+            'nombre_usuario' => 'Credenciales incorrectas.',
+        ])->onlyInput('nombre_usuario');
     }
 }

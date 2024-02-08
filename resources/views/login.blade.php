@@ -56,6 +56,9 @@
     <h2>Iniciar Sesión</h2>
     <label for="username">Usuario:</label>
     <input type="text" id="username" name="nombre_usuario" required>
+    @error('nombre_usuario')
+    <div class="error">{{ $message }}</div>
+    @enderror
 
     <label for="password">Contraseña:</label>
     <input type="password" id="password" name="contrasena" required>
