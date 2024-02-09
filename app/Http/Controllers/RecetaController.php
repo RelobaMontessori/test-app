@@ -29,13 +29,18 @@ class RecetaController extends Controller
     }
     public function addReceta(){
         $formulario= request()->validate([
-            'nombre' => ['required', 'max:600'],
+            /*'nombre' => ['required', 'max:600'],
             'texto' => ['required', 'max:5000'],
-            'tiempo' => ['required','number'],
+            'tiempo' => ['required','number'],*/
             'imagen' => ['image','mimes:png,jpg,jpeg'],
-            'dificultad' => [],
-            'tipo' => []
+            /*'dificultad' => [],
+            'tipo' => []*/
         ]);
+        $imageName = time().'.'.$formulario['imagen']->extension();
+
+        // Public Folder
+        $formulario['imagen']->move(public_path('images'), $imageName);
+        return 'ok';
 
     }
 }

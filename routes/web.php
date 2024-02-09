@@ -47,3 +47,8 @@ Route::get('/login',[LoginController::class,'muestraForm']);
 Route::post('/login',[LoginController::class,'checkLoginLaravel']);
 
 Route::post('/logout',[LoginController::class,'logoutLaravel']);
+
+Route::get('/pruebaIMG',function(){
+    return view('pruebaImagen');
+});
+Route::post('/pruebaIMG',[RecetaController::class,'addReceta']);
