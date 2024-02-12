@@ -9,6 +9,6 @@ class Ingrediente extends Model
 {
     use HasFactory;
 	public function recetas(){
-		return $this->belongsToMany(Recetas::class);
+		return $this->belongsToMany(Receta::class,'ingredientes-recetas','id_ingrediente','id_receta');
 	}
 }

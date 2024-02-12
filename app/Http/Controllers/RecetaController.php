@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comentario;
+use App\Models\Ingrediente;
 use App\Models\Receta;
 use Illuminate\Http\Request;
 
@@ -37,7 +38,6 @@ class RecetaController extends Controller
             'tipo' => []*/
         ]);
         $imageName = time().'.'.$formulario['imagen']->extension();
-
         // Public Folder
         $formulario['imagen']->move(public_path('images'), $imageName);
         return 'ok';
